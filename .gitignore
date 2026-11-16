@@ -1,0 +1,44 @@
+# Donnees de sequencage
+data/
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+
+# Bases de donnees de reference
+references/
+
+# Resultats des analyses
+results/
+*.rds
+*.RData
+
+# Logs
+logs/
+*.log
+
+# Fichiers internes Snakemake
+.snakemake/
+
+# Anciennes versions et sauvegardes
+archive/
+*.bak
+
+# Environnements et fichiers temporaires
+.conda/
+__pycache__/
+*.pyc
+
+# Fichiers temporaires R
+.Rhistory
+.Rproj.user/
+
+# Fichiers systeme
+.DS_Store
+Thumbs.db
+
+# Anciens schemas PDF
+docs/pipeline_DAG.pdf
+docs/pipeline_rulegraph.pdf
+config/config.local.yaml
+docs/pipeline_DAG.png

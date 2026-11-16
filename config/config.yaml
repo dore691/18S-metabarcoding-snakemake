@@ -1,0 +1,46 @@
+# Configuration du pipeline de metabarcoding 18S
+
+# Liste des echantillons
+samples:
+  - SAMPLE1
+  - SAMPLE2
+
+# Type de lectures
+reads:
+  - R1
+  - R2
+
+# Amorce forward et reverse
+primers:
+  forward: "CCAGCASCYGCGGTAATTCC"
+  reverse: "ACTTTCGTTCTTGATYRA"
+
+# Parametres de filtrage DADA2
+dada2:
+  truncLen:
+    - 270
+    - 250
+  maxN: 0
+  maxEE:
+    - 2
+    - 2
+  truncQ: 2
+  rm_phix: true
+  compress: true
+  threads: 2
+
+# Configuration de la taxonomie
+taxonomy:
+  database: "references/pr2_version_5.0.0_SSU_dada2.fasta.gz"
+  threads: 1
+  minBoot: 50
+  taxLevels:
+    - Domain
+    - Supergroup
+    - Division
+    - Subdivision
+    - Class
+    - Order
+    - Family
+    - Genus
+    - Species
