@@ -19,7 +19,9 @@ rule all:
         "results/trimmed/results_dada2/seqtab.nochim.rds",
         "results/trimmed/results_dada2/ASV_length_distribution.pdf",
         "results/trimmed/results_dada2/track.txt",
-        "results/trimmed/results_dada2/retention_track.pdf"
+        "results/trimmed/results_dada2/retention_track.pdf",
+        "results/trimmed/results_dada2/ASV_table.csv",
+        "results/trimmed/results_dada2/ASV_sequences.fasta"
 
 # 3. CONTROLE QUALITE
 
@@ -166,3 +168,15 @@ rule complete:
     input:
         rules.all.input,
         "results/trimmed/results_dada2/taxa_PR2.rds"
+
+
+rule export_asv:
+    input:
+        asv="results/trimmed/results_dada2/seqtab.nochim.rds"
+    output:
+        table="results/trimmed/results_dada2/ASV_table.csv",
+        fasta="results/trimmed/results_dada2/ASV_sequences.fasta"
+    conda:
+        "envs/dada2.yaml"
+    script:
+        "scripts/export_asv.R"
